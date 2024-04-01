@@ -1,5 +1,7 @@
 package com.rsc.javastudy2.presentation;
 
+import jakarta.validation.constraints.NotNull;
+
 public class ProductDto {
     private Long id;
     private String name;
@@ -10,14 +12,15 @@ public class ProductDto {
         return id;
     }
 
+    @NotNull
     public String getName() {
         return name;
     }
-
+    @NotNull
     public Integer getPrice() {
         return price;
     }
-
+    @NotNull
     public Integer getAmount() {
         return amount;
     }

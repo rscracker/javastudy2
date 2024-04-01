@@ -1,6 +1,7 @@
 package com.rsc.javastudy2.presentation;
 
 import com.rsc.javastudy2.application.SimpleProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -14,7 +15,7 @@ public class ProductController {
         this.simpleProductService = simpleProductService;
     }
     @RequestMapping(value = "/products" , method = RequestMethod.POST)
-    public ProductDto createProduct(@RequestBody ProductDto productDto){
+    public ProductDto createProduct(@Valid @RequestBody ProductDto productDto){
         return simpleProductService.add(productDto);
     }
 

@@ -1,14 +1,39 @@
 package com.rsc.javastudy2.domain;
 
 import com.rsc.javastudy2.presentation.ProductDto;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Min;
 
 import java.util.Objects;
 
 public class Product {
     private Long id;
+    @Size(min = 1, max =100)
     private String name;
+    @Max(1_000_000)
+    @Min(0)
     private Integer price;
+
+    @Max(9_999)
+    @Min(0)
     private Integer amount;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
 
     @Override
     public boolean equals(Object o){
@@ -16,6 +41,18 @@ public class Product {
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
         return Objects.equals(id, product.id);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
     public Boolean sameId(Long id){
